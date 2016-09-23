@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <title>Weekend Project 5</title>
+    <script src="/vendors/angular.min.js" charset="utf-8"></script>
+    <script src="/vendors/angular-route.min.js" charset="utf-8"></script>
     <script src="/scripts/client.js" charset="utf-8"></script>
+    <script src="/scripts/controllers/addController.js" charset="utf-8"></script>
+    <script src="/scripts/controllers/homeController.js" charset="utf-8"></script>
+    <script src="/scripts/controllers/petsController.js" charset="utf-8"></script>
   </head>
   <body>
-    <h1>Hello World !</h1>
+    <div id="header">
+      <h1>Pets App</h1>
+  </div>
+  <div id="navigation">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#add">Add a Pet</a></li>
+      <li><a href="#pets">See Pets</a></li>
+    </ul>
+  </div>
+  <main ng-view></main>
   </body>
 </html>
