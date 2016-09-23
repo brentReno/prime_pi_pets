@@ -14,4 +14,4 @@ After basic functionality is achieved, the strtch goals are.
   * Allow users to Delete pets
 
 * Pro Mode
-  * Allow users to sort pets alphabetically. 
+  * Allow users to sort pets alphabetically.
