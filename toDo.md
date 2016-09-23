@@ -1,5 +1,6 @@
 To Do's:
-* v 0.1 server serves index.html
+=========
+* v 0.1 server serves index.html - Done
 * v 0.2 navigation for views
 * v 0.3 home view
 * v 0.4 add view
