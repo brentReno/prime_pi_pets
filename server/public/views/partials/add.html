@@ -1,14 +1,14 @@
-<div class = "add">
+<div class = "add" ng-controller="petsController">
   <form class="addPet">
     Pet's Name:<br>
-    <input type="text" id="petName" placeholder=><br>
+    <input type="text" id="petName" ng-model="petName"><br>
     Type of pet:<br>
-    <input type="radio" id="typeDog" value="Dog">Dog
-    <input type="radio" id="typeCat" value="Cat">Cat<br>
+    <input type="radio" id="typeDog" ng-model="petType" value="Dog">Dog
+    <input type="radio" id="typeCat"  ng-model="petType" value="Cat">Cat<br>
     Pet's age:
-    <input type="text" id="petAge" value="" placehoder=" How old is your pet?"><br>
+    <input type="text" id="petAge" ng-model="petAge" value="" placehoder=" How old is your pet?"><br>
     Pet's Picture:
-    <input type="text" id="picSrc" value="" placeholder="ex: http://mypetpic.com"><br>
-    <button id="PetIn">Add your Pet!</button>
+    <input type="text" id="picSrc"  ng-model="petPic"value="" placeholder="ex: http://mypetpic.com"><br>
+    <button id="PetIn" ng-click="addPet()">Add your Pet!</button>
   </form>
 </div>
