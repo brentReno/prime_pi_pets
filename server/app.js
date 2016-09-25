@@ -5,6 +5,11 @@ var petsRouter = require('./routers/petRouter');
 var mongoose=require('mongoose');
 var mongoURI = "mongodb://localhost:27017/piPets";
 var MongoDB = mongoose.connect(mongoURI).connection;
+var Pets = require('./models/pets.js');
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 // set port
 app.set("port", (process.env.PORT || 3005));
@@ -23,14 +28,48 @@ app.listen(app.get("port"), function(){
   console.log("I'm listening.... on:", app.get("port"));
 });//end spin up server
 
-//catch all route
-app.get("/*", function(req, res){
-  console.log("In the catch all route");
-  console.log("Here is the property:", req.params[0]);
-  //if param 0 has no value, send the index
-  var file = req.params[0] || "/views/index.html";
-  //stringthat points to necessary file
-  res.sendFile(path.join(__dirname, "/public/", file));
-});//end catch all
+//cbase hit
+app.get('/', function(req, res){
+  console.log('base url hit');
+  res.sendFile(path.resolve('server/public/views/index.html'));
+});
 
-app.use('/', petsRouter );
+//set public folder to static
+app.use(express.static('server/public/'));
+
+//get all pets route
+app.get('/pets', function(req, res) {
+  console.log("in get pets");
+  Pets.find({}, function(err, petsResults) {
+    if(err){
+      console.log('error occurred:', err);
+      res.sendStatus(500);
+    }else{
+      res.send(petsResults);
+    }
+  });
+});// end get route
+
+//Add new pet route
+app.post('/newPet', function(req, res){
+  // get data from body
+  var sentData = req.body;
+  console.log('sentData:',sentData);
+  //create new assignment object from schema
+  var newPet = new Pets({
+    petName: sentData.petName,
+    petType: sentData.petType,
+    petAge:  sentData.petAge,
+    picLink: sentData.picLink
+  });// end create newPet
+  // save newPet in database
+  newPet.save(function(err){
+      if(err){
+        console.log('error occurred:', err);
+        res.sendStatus(500);
+      } else {
+        console.log('newPet saved successfully!');
+        res.sendStatus(201);
+      }// end if else
+    });// end Pet save
+}); // end post route
