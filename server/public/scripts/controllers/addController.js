@@ -1,4 +1,4 @@
-myApp.controller("addController", ["$scope", function($scope){
+myApp.controller("addController", ["$scope", '$http',function($scope,$http){
   console.log(" Add Page");
 
   //get pet info
@@ -12,5 +12,14 @@ myApp.controller("addController", ["$scope", function($scope){
       picLink: $scope.petPic
     }; // end new item
     console.log('sending:',newPet);
-  };//end addPet
+
+//post call
+  $http({
+    method: 'POST',
+      url: '/newPet',
+      data: newPet,
+    }).then(function ( response ){
+      console.log('back from server with:', response);
+    });
+    };//end addPet
 }]);
