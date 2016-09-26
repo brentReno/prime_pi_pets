@@ -51,3 +51,24 @@ form button{
 form .btn{
   margin-bottom: 10px;
 }
+.container{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  
+}
+.container .btn{
+  margin-bottom: 5px;
+
+}
+.second{
+  background-color: darkgrey;
+  margin-left: auto;
+  margin-right: auto;
+}
+.second ul{
+  width: 15%;
+  margin-left: auto;
+  margin-right: auto;
+}

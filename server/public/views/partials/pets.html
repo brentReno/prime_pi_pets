@@ -1,11 +1,15 @@
-<button ng-click="sortPets('a')">Sort A-Z</button>
-<button ng-click="sortPets('z')">Sort Z-A</button>
-<div ng-repeat='pet in allPets'>
-<h3 >
-  {{pet.petName}}
-</h3>
-<img src={{pet.picLink}} class='img-rounded'>
-<p>Type: {{pet.petType}}</p>
-<p> Age: {{pet.petAge}} </p>
-<button  ng-click="delete(pet)">Delete</button>
+<div class="navbar-dark second">
+  <ul class="nav nav-pills">
+    <li class='nav-item' ng-click="sortPets('a')"><a>Sort A-Z</a></li>
+    <li  class='nav-item' ng-click="sortPets('z')"><a>Sort Z-A</a></li>
+</ul>
+</div>
+<div ng-repeat='pet in allPets' class='container'>
+  <h3 >
+    {{pet.petName}}
+  </h3>
+  <img src={{pet.picLink}} class='img-rounded'>
+  <p>Type: {{pet.petType}}</p>
+  <p> Age: {{pet.petAge}} </p>
+  <button  class='btn btn-danger' ng-click="delete(pet)">Delete</button>
 </div>
