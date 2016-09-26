@@ -31,10 +31,10 @@ myApp.controller("petsController", ['$scope','$http',function($scope,$http){
   };// end delete
 
   //sort pets
-  $scope.sortPets = function(){
+  $scope.sortPets = function(value){
     $http({
       method: 'GET',
-      url: '/pets/sort',
+      url: '/pets/'+ value,
     }).then(function(response){
       console.log('back from server with:', response.data);
       $scope.allPets =response.data;

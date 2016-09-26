@@ -41,27 +41,42 @@ app.use(express.static('server/public/'));
 app.get('/pets/:sort?', function(req, res) {
   console.log("in get pets");
   console.log("params", req.params);
-  if(req.params.sort ==='sort'){
+  //params == a
+  if(req.params.sort =='a'){
     Pets.find().sort('petName').exec(function(err, petsResults) {
-      if(err){
+      if (err){
         console.log(err);
         res.sendStatus(500);
-      } else {
+      }//end error
+      else{
         res.send(petsResults);
       }
-  });
-  }
+    });// end callback
+  }// end a if
+  //params == z
+  else if(req.params.sort =='z'){
+    Pets.find().sort('-petName').exec(function(err, petsResults) {
+      if (err){
+        console.log(err);
+        res.sendStatus(500);
+      }//end error
+      else{
+        res.send(petsResults);
+      }
+    });// end callback
+  }// end z else if
+  //default
   else{
-    Pets.find({}, function(err, petsResults) {
+    Pets.find({}, function(err, petsResults){
       if(err){
-        console.log('error occurred:', err);
+        console.log(err);
         res.sendStatus(500);
       }
       else{
         res.send(petsResults);
       }
-  });
-}
+    });//end call back
+  }
 });// end get route
 
 //Add new pet route
