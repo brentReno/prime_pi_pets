@@ -38,17 +38,30 @@ app.get('/', function(req, res){
 app.use(express.static('server/public/'));
 
 //get all pets route
-app.get('/pets', function(req, res) {
+app.get('/pets/:sort?', function(req, res) {
   console.log("in get pets");
-  
-  Pets.find({}, function(err, petsResults) {
-    if(err){
-      console.log('error occurred:', err);
-      res.sendStatus(500);
-    }else{
-      res.send(petsResults);
-    }
+  console.log("params", req.params);
+  if(req.params.sort ==='sort'){
+    Pets.find().sort('petName').exec(function(err, petsResults) {
+      if(err){
+        console.log(err);
+        res.sendStatus(500);
+      } else {
+        res.send(petsResults);
+      }
   });
+  }
+  else{
+    Pets.find({}, function(err, petsResults) {
+      if(err){
+        console.log('error occurred:', err);
+        res.sendStatus(500);
+      }
+      else{
+        res.send(petsResults);
+      }
+  });
+}
 });// end get route
 
 //Add new pet route

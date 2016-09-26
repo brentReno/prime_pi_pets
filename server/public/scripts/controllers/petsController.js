@@ -35,7 +35,7 @@ myApp.controller("petsController", ['$scope','$http',function($scope,$http){
     $http({
       method: 'GET',
       url: '/pets/sort',
-    }).then(function(respons){
+    }).then(function(response){
       console.log('back from server with:', response.data);
       $scope.allPets =response.data;
       console.log('all Pets:',$scope.allPets);
