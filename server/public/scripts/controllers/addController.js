@@ -22,6 +22,6 @@ myApp.controller("addController", ["$scope", '$http',function($scope,$http){
       console.log('back from server with:', response);
     });
      var addPet = angular.element( document.querySelector( '.add' ));
-     addPet.append('<p class="addedPet"> Your pet was added succesfully!</p>');
+     addPet.append('<p class="addedPet text-primary"> <a href="#pets"> Your pet is part of Pi! Click to view.</a></p>');
     };//end addPet
 }]);
