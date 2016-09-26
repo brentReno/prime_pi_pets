@@ -40,6 +40,7 @@ app.use(express.static('server/public/'));
 //get all pets route
 app.get('/pets', function(req, res) {
   console.log("in get pets");
+  
   Pets.find({}, function(err, petsResults) {
     if(err){
       console.log('error occurred:', err);

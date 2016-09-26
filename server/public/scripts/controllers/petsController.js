@@ -29,4 +29,16 @@ myApp.controller("petsController", ['$scope','$http',function($scope,$http){
     });
     viewPets();
   };// end delete
+
+  //sort pets
+  $scope.sortPets = function(){
+    $http({
+      method: 'GET',
+      url: '/pets/sort',
+    }).then(function(respons){
+      console.log('back from server with:', response.data);
+      $scope.allPets =response.data;
+      console.log('all Pets:',$scope.allPets);
+    });
+  };
 }]);// end petsController
