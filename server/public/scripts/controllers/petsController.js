@@ -1,7 +1,7 @@
 myApp.controller("petsController", ['$scope','$http',function($scope,$http){
   console.log(" Pets Page");
   $scope.allPets = [];
-  var onLoad= function(){
+  var viewPets= function(){
     $http({
       method: 'GET',
       url: '/pets',
@@ -12,7 +12,7 @@ myApp.controller("petsController", ['$scope','$http',function($scope,$http){
     });// end http Call
   };// end on load
   // call on load
-  onLoad();
+  viewPets();
 
   $scope.delete = function(pet){
     console.log("in deletePet");
@@ -27,5 +27,6 @@ myApp.controller("petsController", ['$scope','$http',function($scope,$http){
     }).then(function ( response ){
       console.log('back from server with:', response);
     });
+    viewPets();
   };// end delete
 }]);// end petsController
