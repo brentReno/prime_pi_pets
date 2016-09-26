@@ -73,3 +73,12 @@ app.post('/newPet', function(req, res){
       }// end if else
     });// end Pet save
 }); // end post route
+
+//delete Pete
+app.delete('/pets', function(req, res){
+  console.log('hit delete route with:',req.body);
+  Pets.findByIdAndRemove({"_id":req.body._id}, function(){
+    console.log("Pet "+ req.body.id +" has been deleted.");
+    res.send(200);
+  });// end callback
+});// end delete
