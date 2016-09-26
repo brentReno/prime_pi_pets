@@ -13,4 +13,11 @@ myApp.controller("petsController", ['$scope','$http',function($scope,$http){
   };// end on load
   // call on load
   onLoad();
+
+  $scope.delete = function(pet){
+    console.log("in deletePet");
+     console.log(pet._id);
+
+
+  };// end delete pet
 }]);// end petsController
