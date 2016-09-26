@@ -10,15 +10,17 @@
     <script src="/scripts/controllers/homeController.js" charset="utf-8"></script>
     <script src="/scripts/controllers/petsController.js" charset="utf-8"></script>
     <link rel="stylesheet" href="/styles/main.css" media="screen" title="no title">
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css" media="screen" title="no title">
   </head>
   <body>
-  <div id="navigation">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#add">Add a Pet</a></li>
-      <li><a href="#pets">See Pets</a></li>
+  <div id="navigation" class='navbar-dark' >
+    <ul class ='nav nav-pills'>
+      <li class='nav-item'><a href="#home">Home</a></li>
+      <li class='nav-item'><a href="#add">Add a Pet</a></li>
+      <li class='nav-item'><a href="#pets">See Pets</a></li>
     </ul>
   </div>
   <main ng-view></main>
+  <div class='navbar-dark'> pi Pets</div>
   </body>
 </html>

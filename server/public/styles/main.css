@@ -2,3 +2,27 @@ img{
   width: 25%;
   height: 25% ;
 }
+.nav{
+  width: 20%;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+}
+.navbar-dark{
+  background-color: black;
+}
+.display-1{
+  text-align: center;
+}
+
+.text-primary{
+  text-align: center;
+  font-size: 18px;
+}
+.col-lg-2{
+  text-align: center;
+  float:left;
+  margin-left: 475px;
+  width: 100%;
+  margin-bottom: 10px;
+}
