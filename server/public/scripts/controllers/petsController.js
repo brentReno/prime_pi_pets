@@ -1,18 +1,10 @@
 myApp.controller("petsController", ['$scope','$http','petFactory',function($scope,$http, petFactory){
   console.log(" Pets Page");
   $scope.allPets = [];
-  var viewPets= function(){
-    $http({
-      method: 'GET',
-      url: '/pets',
-    }).then(function ( response ){
-      console.log('back from server with:', response.data);
-      $scope.allPets =response.data;
-      console.log('all Pets:',$scope.allPets);
-    });// end http Call
-  };// end on load
-  // call on load
-  viewPets();
+
+  petFactory.retrivePets().then(function(){
+    $scope.allPets = petFactory.serverPets();
+  });
 
   $scope.delete = function(pet){
     console.log("in deletePet");
@@ -41,4 +33,6 @@ myApp.controller("petsController", ['$scope','$http','petFactory',function($scop
       console.log('all Pets:',$scope.allPets);
     });
   };
+
+
 }]);// end petsController
