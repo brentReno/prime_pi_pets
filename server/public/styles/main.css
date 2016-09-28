@@ -77,3 +77,9 @@ form .btn{
   font-size: 14px;
   font-weight: bold;
 }
+#navBtns{
+  display: block;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+}

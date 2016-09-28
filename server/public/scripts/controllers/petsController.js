@@ -1,4 +1,4 @@
-myApp.controller("petsController", ['$scope','$http',function($scope,$http){
+myApp.controller("petsController", ['$scope','$http','petFactory',function($scope,$http, petFactory){
   console.log(" Pets Page");
   $scope.allPets = [];
   var viewPets= function(){
