@@ -1,16 +1,32 @@
 <h1 class="display-1"> Add Your Pet</h1>
 <div class = "add">
-  <form class="addPet form-group">
-    <label>Pet's Name:</label>
-    <input type="text" id="petName" ng-model="petName" placeholder="Rover"><br>
-    <label>Type of Pet:</label>
-    <input type="radio" id="typeDog" ng-model="petType" value="Dog">Dog
-    <input type="radio" id="typeCat"  ng-model="petType" value="Cat">Cat<br>
-    <label>Pet's Age:</label>
-    <input type="text" id="petAge" ng-model="petAge" value="" placeholder=" 3 years"><br>
-    <label>Pet's Picture:</label>
-    <input type="text" id="picSrc"  ng-model="petPic"value="" placeholder="pic URL"><br>
-    <button class='btn btn-primary'id="PetIn" ng-click="addPet()">Add your Pet!</button>
+  <form class="addPet form-group container">
+    <div class="row">
+      <label class="col-md-2 col-md-offset-4">Pet's Name:</label>
+      <input class="col-md-2" type="text" id="petName" ng-model="petName" placeholder="Rover">
+    </div>
+    <div class="row">
+      <label class="col-md-2 col-md-offset-4">Type of Pet:</label>
+      <div class="col-md-1">
+        <label for="typeDog">Dog</label>
+        <input type="radio" id="typeDog" ng-model="petType" value="Dog">
+      </div>
+      <div class="col-md-1">
+        <label for="typeCat"> Cat</label>
+        <input type="radio" id="typeCat"  ng-model="petType" value="Cat">
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-2 col-md-offset-4 adjust">Pet's Age:</label>
+      <input class="col-md-2" type="text" id="petAge" ng-model="petAge" value="" placeholder=" 3 years">
+    </div>
+    <div class="row">
+      <label class="col-md-2 col-md-offset-4 adjust">Pet's Picture:</label>
+      <input class="col-md-2" type="text" id="picSrc"  ng-model="petPic"value="" placeholder="pic URL">
+    </div>
+    <div class="row">
+      <button class='btn btn-primary col-md-2 col-md-offset-5'id="PetIn" ng-click="addPet()">Add your Pet!</button>
+    </div>
   </form>
-  
+
 </div>
